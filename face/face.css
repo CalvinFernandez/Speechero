@@ -1,0 +1,38 @@
+.face
+{
+	position:absolute;
+}
+
+#face_color
+{
+
+}
+
+
+#mouth
+{
+	position:absolute;
+	top:330px;
+	width:600px;
+	height:151px;
+}
+
+#mouth_sad
+{
+	position:absolute;
+	top:330px;
+	width:600px;
+	height:151px;
+	visibility:hidden;
+}
+
+#face
+{
+	position:absolute;
+}
+
+#slider_div
+{
+	position:absolute;
+	left:700px;
+}

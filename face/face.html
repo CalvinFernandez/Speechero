@@ -1,0 +1,76 @@
+<html> 
+	<head>
+		<script src="face_class.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="face.css">
+	  	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+	  	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	  	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+	  	<link rel="stylesheet" href="/resources/demos/style.css" />
+	  	<script>
+	  		$(function() {
+			    $( "#slider-vertical" ).slider({
+			      orientation: "vertical",
+			      range: "min",
+			      min: 0,
+			      max: 100,
+			      value: 60,
+			      slide: function( event, ui ) {
+			         $( "#amount" ).val( ui.value );
+			         if (ui.value <= 100 && ui.value > 65)
+			         {
+			         	$("#face_color").attr("src", "Green_Face.png");
+			         }
+			         else if (ui.value <= 65 && ui.value >= 35)
+			         {
+			         	
+			         	$("#face_color").attr("src", "Yellow_Face.png");
+			         }
+			         else if (ui.value <= 35 && ui.value >= 0)
+			         {
+						$("#face_color").attr("src", "Red_Face.png");
+			         };
+
+
+			         if (ui.value <= 100 && ui.value >50)
+			         {
+			         	var percentage = (ui.value - 50) * 2 * 151 / 100 + 3;
+			         	var percentageString = percentage + "px";
+			         	$("#mouth").css("height", percentage); 
+			         	$("#mouth_sad").css('visibility', 'hidden');
+			         	$("#mouth").css('visibility', 'visible');
+			         }
+			         else if (ui.value <=50 && ui.value>=0)
+			         {
+			         	var percentage = (100 - ((ui.value) * 2)) * 151 / 100 + 3 ;
+			         	var percentageString = percentage + "px";
+			         	$("#mouth_sad").css("height", percentage); 
+			         	console.log(percentageString);
+			         	$("#mouth_sad").css('visibility', 'visible');
+			         	$("#mouth").css('visibility', 'hidden');
+			         };
+			      }
+			    });
+			    $( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
+			  });
+
+
+	  	</script>
+	</head>
+
+	<body>
+		<div id="slider_div">
+			<p>
+			  <label for="amount">Value:</label>
+			  <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
+			</p>
+			 
+			<div id="slider-vertical" style="height: 200px;"></div>
+		</div>
+		 
+		<img class="face" id="face_color" src="Green_Face.png"> </img>
+		<img class="face" id="face" src="Face.png"> </img>
+		<img id="mouth" src="Mouth.png"> </img>
+		<img id="mouth_sad" src="Mouth_Sad.png"> </img>
+
+	</body>
+</html>
