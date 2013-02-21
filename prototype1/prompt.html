@@ -4,9 +4,19 @@
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript">
 
-			var wizardQuestions = [
-				"Describe your most exciting driving experience",
-				"Would you rather fight 1000 duck-sized horses or 1 horse-sized duck?"
+			var topics = [
+				"Describe your most exciting driving experience.",
+				"Would you rather fight 1000 duck-sized horses or 1 horse-sized duck? Why?"
+				"Do you believe in ghosts?"
+				"Your least favorite chores."
+				"The best letter in the alphabet."
+				"Why is your mom/dad special?"
+				"Books: are they important?"
+				"What was your first screen name?"
+				"What would you do if you were trapped in a mall for a weekend?"
+				"Vampires or werewolves?"
+				"Would you rather speak every language perfectly or play every instrument perfectly?"
+				"Describe your dream job."
 			];
 			function getRandomInt(min, max) {
 				// via https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Math/random#Examples
@@ -18,10 +28,10 @@
 			}
 
 			$(document).ready(function(){
-				$('#prompt').text(randomChoice(wizardQuestions));//give random prompt
+				$('#prompt').text(randomChoice(topics));//give random prompt
 				
 				/*Timer code*/
-				var count = 30;
+				var count = 15;
 				$("#timer").text(count);
 				var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
 				function timer(){
