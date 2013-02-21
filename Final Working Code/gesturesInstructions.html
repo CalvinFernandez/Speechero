@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script>
+			$(document).click(function()
+			{
+				window.location = "prompt.html";
+			});
+			document.onkeydown = function(evt) {
+			    evt = evt || window.event;
+			    if (evt.keyCode == 39) {
+		    		window.location = "prompt.html";
+			    }
+			    if (evt.keyCode == 37) {
+		    		window.location = window.history.back();
+			    }
+			};
+		</script>
+	</head>
+	<body>
+		<div class = "menuTitle">Instructions:</div>
+		<div class = "instructionText" id="currentInstruction">Many people are afraid of their hands when giving oral presentations.
+		</br></br>Your task in this module is to make <em>large</em> gestures, above your waist, while giving an impromptu speech based on a prompt we give you.
+		</br></br>You will see a skeleton figure that emulates your movements as you give your speech. The face of the figure will change colors depending on how well you're doing. Like this:</div>
+		<img id="facesImage" src="./img/faces.png"></img>
+		<div class = "instructionText"><a href="selectMode.html">Click to continue</a></div>
+	</body>	
+</html>

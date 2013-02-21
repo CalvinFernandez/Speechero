@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script>
+			document.onkeydown = function(evt) {
+			    evt = evt || window.event;
+			    if (evt.keyCode == 39) {
+		    		window.location = "bigGestures.html";
+			    }
+			    if (evt.keyCode == 37) {
+		    		window.location = window.history.back();
+			    }
+			};
+		</script>
+		<script type="text/javascript">
+
+			var topics = [
+				"Describe your most exciting driving experience.",
+				"Would you rather fight 1000 duck-sized horses or 1 horse-sized duck? Why?",
+				"Do you believe in ghosts?",
+				"Your least favorite chores.",
+				"The best letter in the alphabet.",
+				"Why is your mom/dad special?",
+				"Books: are they important?",
+				"What was your first screen name?",
+				"What would you do if you were trapped in a mall for a weekend?",
+				"Vampires or werewolves?",
+				"Would you rather speak every language perfectly or play every instrument perfectly?",
+				"Describe your dream job."
+			];
+			function getRandomInt(min, max) {
+				// via https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Math/random#Examples
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+
+			function randomChoice(items) {
+				return items[getRandomInt(0, items.length-1)];
+			}
+
+			$(document).ready(function(){
+				$('#prompt').text(randomChoice(topics));//give random prompt
+				
+				/*Timer code*/
+				var count = 15;
+				$("#timer").text(count);
+				var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
+				function timer(){
+					$("#timer").text(count);
+					count = count-1;
+					if(count<=0){
+						clearInterval(counter);
+						window.location = "bigGestures.html";
+					}
+				}
+			});
+
+
+
+			
+		</script>
+	</head>
+	<body>
+		<div class = "instructionText">Here's Your Prompt:</div>
+		<div class = "instructionText" id = "prompt"></div>
+		<div class = "instructionText timerText">In <span id="timer"></span> seconds your speech will begin. </br>Step back 6 feet from the kinect. </br> <strong> When you're done, get out of view of the camera.</strong></div>		
+	</body>	
+</html>
