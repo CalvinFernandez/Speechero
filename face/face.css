@@ -3,9 +3,20 @@
 	position:absolute;
 }
 
-#face_color
+#green_face
 {
 
+}
+
+#red_face
+{
+	visibility: hidden;
+}
+
+#yellow_face
+{
+	opacity: 1;
+	filter: alpha(opacity=100);
 }
 
 

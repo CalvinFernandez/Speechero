@@ -33,20 +33,35 @@
 
 			         if (ui.value <= 100 && ui.value >50)
 			         {
-			         	var percentage = (ui.value - 50) * 2 * 151 / 100 + 3;
-			         	var percentageString = percentage + "px";
-			         	$("#mouth").css("height", percentage); 
+			         	// MOUTH
+			         	var percentage = (ui.value - 50) * 2;
+			         	var pixelValue = percentage * 151/100 + 3;
+			         	$("#mouth").css("height", pixelValue); 
 			         	$("#mouth_sad").css('visibility', 'hidden');
 			         	$("#mouth").css('visibility', 'visible');
+
+			         	// FACE COLOR
+			         	$("#green_face").css('visibility', 'visible');
+			         	$("#red_face").css('visibility', 'hidden');
+			         	var opacity_value = percentage / 100.0;
+			         	console.log(opacity_value);
+			         	$("#green_face").css({ opacity: opacity_value });
 			         }
 			         else if (ui.value <=50 && ui.value>=0)
 			         {
-			         	var percentage = (100 - ((ui.value) * 2)) * 151 / 100 + 3 ;
-			         	var percentageString = percentage + "px";
-			         	$("#mouth_sad").css("height", percentage); 
-			         	console.log(percentageString);
+			         	// MOUTH
+			         	var percentage = (100 - ((ui.value) * 2)) ;
+			         	var pixelValue = percentage * 151 / 100 + 3 ;
+			         	$("#mouth_sad").css("height", pixelValue); 
 			         	$("#mouth_sad").css('visibility', 'visible');
 			         	$("#mouth").css('visibility', 'hidden');
+
+			         	// FACE COLOR
+			         	$("#green_face").css('visibility', 'hidden');
+			         	$("#red_face").css('visibility', 'visible');
+			         	var opacity_value = percentage / 100.0;
+			         	console.log(opacity_value);
+			         	$("#red_face").css({ opacity: opacity_value });
 			         };
 			      }
 			    });
@@ -67,7 +82,9 @@
 			<div id="slider-vertical" style="height: 200px;"></div>
 		</div>
 		 
-		<img class="face" id="face_color" src="Green_Face.png"> </img>
+		<img class="face" id="yellow_face" src="Yellow_Face.png"> </img>
+				<img class="face" id="green_face" src="Green_Face.png"> </img>
+		<img class="face" id="red_face" src="Red_Face.png"> </img>
 		<img class="face" id="face" src="Face.png"> </img>
 		<img id="mouth" src="Mouth.png"> </img>
 		<img id="mouth_sad" src="Mouth_Sad.png"> </img>
