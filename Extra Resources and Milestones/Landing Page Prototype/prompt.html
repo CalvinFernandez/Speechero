@@ -2,6 +2,17 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script>
+			document.onkeydown = function(evt) {
+			    evt = evt || window.event;
+			    if (evt.keyCode == 39) {
+		    		window.location = "bigGestures.html";
+			    }
+			    if (evt.keyCode == 37) {
+		    		window.location = window.history.back();
+			    }
+			};
+		</script>
 		<script type="text/javascript">
 
 			var topics = [
@@ -39,7 +50,7 @@
 					count = count-1;
 					if(count<=0){
 						clearInterval(counter);
-						window.location = "error.html";
+						window.location = "bigGestures.html";
 					}
 				}
 			});

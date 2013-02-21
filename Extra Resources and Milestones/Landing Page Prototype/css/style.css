@@ -8,6 +8,11 @@ src: url('../fonts/Chunkfive.otf');
 font-family: 'Serifa';
 src: url('../fonts/Serifa.ttf');
 }
+@font-face
+{
+font-family: 'Molot';
+src: url('../fonts/Molot.otf');
+}
 /* ------------------------------------ COMMON ELEMENTS ------------------------------------*/
 body{
 	margin: 0 0 0 0px;
@@ -33,6 +38,30 @@ a:visited{
 	text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
 	font-size: 32px;
 	text-align: center;
+}
+
+.footerText{
+	font-family: Serifa;
+	color: white;
+	text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+	font-size: 20px;
+	position:absolute;
+	bottom:20px;
+}
+
+.menuTitle{
+	font-family: Molot;
+	color: white;
+	text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+	font-size: 100px;
+	text-align: center;
+}
+
+.menuItem{
+	font-family: Serifa;
+	color: white;
+	text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+	font-size: 24px;
 }
 /* ------------------------------------ INDEX ------------------------------------*/
 
@@ -62,6 +91,13 @@ a:visited{
 	margin-right: 10px;
 	margin-left: 10px	;
 }
+
+#facesImage{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+}
 /* ------------------------------------ PROMPT ------------------------------------*/
 #prompt{
 	margin-top: 50px;
@@ -77,4 +113,16 @@ a:visited{
 	bottom:20px;*/
 }
 
+/* ------------------------------------ MODULES ------------------------------------*/
+.modules .imgContainer{
+	margin-left:150px;
+	margin-right: 150px;
+	margin-top:50px;
+}
+.modules img{
+	width:30%;
+	float:left;
+	margin-right: 10px;
+	margin-left: 10px;
+}
 
