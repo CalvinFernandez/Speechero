@@ -1,9 +1,41 @@
+.progress_bar
+{
+	position:absolute;
+	width:100px;
+
+}
+
+#face_and_bar_wrapper
+{
+	
+}
+
+#progress_bar_green
+{
+	z-index:20; 
+	height:484px;
+	bottom:0px;
+}
+
+#progress_bar_black
+{
+	z-index:10; 
+	bottom:0px;
+	height:484px;
+}
+
+
+#bar_div
+{
+	left:700px;
+	position:relative;
+	top:550px;	
+}
+
+
 .face
 {
 	position:absolute;
-	height:120px;
-	left: -60px;
-	top: -60px;
 }
 
 #green_face
@@ -26,19 +58,17 @@
 #mouth
 {
 	position:absolute;
-	top:0px;
-	left: -60px;
-	width:120px;
-	height:30px;
+	top:420px;
+	width:600px;
+	height:151px;
 }
 
 #mouth_sad
 {
 	position:absolute;
-	top:0px;
-	left: -60px;
-	width:120px;
-	height:30px;
+	top:420px;
+	width:600px;
+	height:151px;
 	visibility:hidden;
 }
 
