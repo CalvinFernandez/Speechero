@@ -167,7 +167,7 @@
                                 if ( data.aboveWaist === false )
                                 {
                                     // take away points for movements below the waist
-                                    faceColorValue = Math.max((faceColorValue - 0.1), 0);
+                                    faceColorValue = Math.max((faceColorValue - 0.01), 0);
                                     changeFace(faceColorValue);
                                 }
                                 
@@ -175,20 +175,20 @@
                                 {
                                     if ( data.aboveWaist === true )
                                     {
-                                        faceColorValue = Math.min((faceColorValue + 0.1), 100);
+                                        faceColorValue = Math.min((faceColorValue + 0.5), 100);
                                         changeFace(faceColorValue);
                                     }
                                     else
                                     {
                                         // give lots of points for large movements
-                                        faceColorValue = Math.min((faceColorValue + 0.05), 100);
+                                        faceColorValue = Math.min((faceColorValue + 0.2), 100);
                                         changeFace(faceColorValue);
                                     }
                                 }
                                 else if ( data.largeMovement === false )
                                 {
                                     // take away a few points for not gesturing
-                                    faceColorValue = Math.max((faceColorValue - 0.09), 0);
+                                    faceColorValue = Math.max((faceColorValue - 0.2), 0);
                                     changeFace(faceColorValue);
                                 }
                             });
@@ -228,7 +228,7 @@
 
             //adding notifications on player detection/loss
             kinect.addEventListener('playerFound', function( count ) { this.notif.push( "PLAYER FOUND. Total : " + count[ 0 ] ) });
-            kinect.addEventListener('playerLost', function( count ) { window.location.replace("");; this.notif.push("PLAYER LOST. Total : " + count[ 0 ] ) });
+            kinect.addEventListener('playerLost', function( count ) { window.location.replace("index.html");; this.notif.push("PLAYER LOST. Total : " + count[ 0 ] ) });
 
             kinect.addEventListener('gestureJump', function(args) {
                 console.log("Peace man!")
