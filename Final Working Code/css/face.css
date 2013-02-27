@@ -7,7 +7,11 @@
 
 #face_and_bar_wrapper
 {
-	
+	position:relative;
+	height:500px;
+	width:800px;
+	margin-left:auto;
+margin-right:auto;
 }
 
 #progress_bar_green
@@ -38,10 +42,11 @@
 	position:absolute;
 }
 
-#green_face
+.mouth
 {
-
+	position:absolute;
 }
+
 
 #red_face
 {
@@ -57,24 +62,17 @@
 
 #mouth
 {
-	position:absolute;
-	top:420px;
+	top:300px;
 	width:600px;
 	height:151px;
 }
 
 #mouth_sad
 {
-	position:absolute;
-	top:420px;
+	top:300px;
 	width:600px;
 	height:151px;
 	visibility:hidden;
-}
-
-#face
-{
-	position:absolute;
 }
 
 #slider_div

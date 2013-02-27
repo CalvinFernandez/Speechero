@@ -1,7 +1,8 @@
 <html> 
 	<head>
 		<script src="face_class.js" type="text/javascript"></script>
-		<link rel="stylesheet" type="text/css" href="face.css">
+		<link rel="stylesheet" type="text/css" href="./css/face.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
 	  	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 	  	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	  	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
@@ -39,7 +40,6 @@
 		         	$("#green_face").css('visibility', 'visible');
 		         	$("#red_face").css('visibility', 'hidden');
 		         	var opacity_value = percentage / 100.0;
-		         	console.log(opacity_value);
 		         	$("#green_face").css({ opacity: opacity_value });
 		         }
 		         // Score is between 50 and 0, where we use the flipped version of the smiling image, dubbed the "horrified image"
@@ -76,14 +76,41 @@
 				// function that will gradually be called
 				var intervalScore = function () {
 				 	current_score = current_score + 1;
+				 	
+				 	if (current_score < 20)
+				 	{
+				 		$("#feedback_element").text("Terrible!");
+				 	}
+				 	else if (current_score < 40)
+				 	{
+				 		$("#feedback_element").text("Bad!");
+				 	}
+				 	else if (current_score < 60)
+				 	{
+				 		$("#feedback_element").text("Mediocre!");
+				 	}
+				 	else if (current_score < 80)
+				 	{
+				 		$("#feedback_element").text("Awesome!");
+				 	}
+				 	else if (current_score < 90)
+				 	{
+				 		$("#feedback_element").text("Amazing!");
+				 	}
+				 	else
+				 	{
+				 		$("#feedback_element").text("Perfect!");
+				 	}
+
 				 	if (score >= current_score)
 				 	{
-			       	  updateFaceExpressionAndColor(current_score);
-			       	  resizeGreenBar(current_score);
-			       	  $("#score_element").text(current_score);
+			       	    updateFaceExpressionAndColor(current_score);
+			       	    resizeGreenBar(current_score);
+			       	    $("#score_element").text(current_score);
 			       	}
 			    	else
 			    	{
+			    		console.log(current_score);
 			    		clearInterval(intervalScore);
 			    	}
 		    	};
@@ -97,8 +124,8 @@
 	</head>
 
 	<body>
-		<h1 class=""> Your Public Speech Performance Report	</h1>
-		<h3> Score:<a id="score_element"> 0 </a> </h3> 
+
+		<h1 class="menuTitle"> <a id="feedback_element">Congrats!</a> Your score: <a id="score_element"> 0</a>/100	</h1>
 		<div id="face_and_bar_wrapper">
 			<div id="bar_div">
 
@@ -109,12 +136,12 @@
 			<img class="face" id="yellow_face" src="Yellow_Face.png"> </img>
 			<img class="face" id="green_face" src="Green_Face.png"> </img>
 			<img class="face" id="red_face" src="Red_Face.png"> </img>
-			<img class="face" id="face" src="Face.png"> </img>
-			<img id="mouth" src="Mouth.png"> </img>
-			<img id="mouth_sad" src="Mouth_Sad.png"> </img>
+			<img class="face" src="Face.png"> </img>
+			<img class="mouth" id="mouth" src="Mouth.png"> </img>
+			<img class="mouth" id="mouth_sad" src="Mouth_Sad.png"> </img>
 		</div>
 
-		<h1> Screenshots </h1>
+		<h1 class="menuTitle" style="position:relative;"> Screenshots </h1>
 
 	</body>
 </html>
