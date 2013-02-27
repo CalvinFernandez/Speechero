@@ -40,7 +40,6 @@
 		         	$("#green_face").css('visibility', 'visible');
 		         	$("#red_face").css('visibility', 'hidden');
 		         	var opacity_value = percentage / 100.0;
-		         	console.log(opacity_value);
 		         	$("#green_face").css({ opacity: opacity_value });
 		         }
 		         // Score is between 50 and 0, where we use the flipped version of the smiling image, dubbed the "horrified image"
@@ -77,14 +76,41 @@
 				// function that will gradually be called
 				var intervalScore = function () {
 				 	current_score = current_score + 1;
+				 	
+				 	if (current_score < 20)
+				 	{
+				 		$("#feedback_element").text("Terrible!");
+				 	}
+				 	else if (current_score < 40)
+				 	{
+				 		$("#feedback_element").text("Bad!");
+				 	}
+				 	else if (current_score < 60)
+				 	{
+				 		$("#feedback_element").text("Mediocre!");
+				 	}
+				 	else if (current_score < 80)
+				 	{
+				 		$("#feedback_element").text("Awesome!");
+				 	}
+				 	else if (current_score < 90)
+				 	{
+				 		$("#feedback_element").text("Amazing!");
+				 	}
+				 	else
+				 	{
+				 		$("#feedback_element").text("Perfect!");
+				 	}
+
 				 	if (score >= current_score)
 				 	{
-			       	  updateFaceExpressionAndColor(current_score);
-			       	  resizeGreenBar(current_score);
-			       	  $("#score_element").text(current_score);
+			       	    updateFaceExpressionAndColor(current_score);
+			       	    resizeGreenBar(current_score);
+			       	    $("#score_element").text(current_score);
 			       	}
 			    	else
 			    	{
+			    		console.log(current_score);
 			    		clearInterval(intervalScore);
 			    	}
 		    	};
@@ -99,7 +125,7 @@
 
 	<body>
 
-		<h1 class="menuTitle"> Congrats! Your score:<a id="score_element"> 0 </a>	</h1>
+		<h1 class="menuTitle"> <a id="feedback_element">Congrats!</a> Your score: <a id="score_element"> 0</a>/100	</h1>
 		<div id="face_and_bar_wrapper">
 			<div id="bar_div">
 
