@@ -19,7 +19,12 @@
 			$(function (){
             $(".choice").click(function(event)
             {
+            	$(".span5").children().attr("class","choice medium white text-pink add-space")
+            		.css("color","#c33");
+            	$("#chooseTopic").attr("class","large pink")
+            		.css("color","white")
             	$(event.target).css({"color": "white"});
+            	console.log($(event.target));
             	$(event.target).css({"margin": "10px"});
             	$(event.target).attr("class", "medium pink");
             	console.log($(event.target));
@@ -44,7 +49,7 @@
 			<div class="row" style="padding-left:30px;">
 				<div class="caption container" >
 					<div class="span5">
-						<p class="large pink" style="opacity: 1;">Choose a Topic</p>
+						<p class="large pink" id="chooseTopic" style="opacity: 1;">Choose a Topic</p>
 						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Edward vs Jacob </p>
 						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Drug Legalization </p>
 						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Does true love exist? </p>
