@@ -1,68 +1,80 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<!-- Le styles -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/typica.css">
+
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script>
+			/*$(document).click(function()
+			{
+				window.location = "prompt.html";
+			});*/
+			setTimeout(function() {
+                window.location = "prompt.html";
+            }, 180000);
+
+			$(function (){
+            $(".choice").click(function(event)
+            {
+            	$(".span5").children().attr("class","choice medium white text-pink add-space")
+            		.css("color","#c33");
+            	$("#chooseTopic").attr("class","large pink")
+            		.css("color","white")
+            	$(event.target).css({"color": "white"});
+            	console.log($(event.target));
+            	$(event.target).css({"margin": "10px"});
+            	$(event.target).attr("class", "medium pink");
+            	console.log($(event.target));
+
+            });
+        })
 			document.onkeydown = function(evt) {
 			    evt = evt || window.event;
 			    if (evt.keyCode == 39) {
-		    		window.location = "bigGestures.html";
+		    		window.location = "prompt.html";
 			    }
 			    if (evt.keyCode == 37) {
 		    		window.location = window.history.back();
 			    }
 			};
 		</script>
-		<script type="text/javascript">
-
-			var topics = [
-				"Describe your most exciting driving experience.",
-				"Would you rather fight 1000 duck-sized horses or 1 horse-sized duck? Why?",
-				"Do you believe in ghosts?",
-				"Your least favorite chores.",
-				"The best letter in the alphabet.",
-				"Why is your mom/dad special?",
-				"Books: are they important?",
-				"What was your first screen name?",
-				"What would you do if you were trapped in a mall for a weekend?",
-				"Vampires or werewolves?",
-				"Would you rather speak every language perfectly or play every instrument perfectly?",
-				"Describe your dream job."
-			];
-			function getRandomInt(min, max) {
-				// via https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Math/random#Examples
-				return Math.floor(Math.random() * (max - min + 1)) + min;
-			}
-
-			function randomChoice(items) {
-				return items[getRandomInt(0, items.length-1)];
-			}
-
-			$(document).ready(function(){
-				$('#prompt').text(randomChoice(topics));//give random prompt
-				
-				/*Timer code*/
-				var count = 15;
-				$("#timer").text(count);
-				var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
-				function timer(){
-					$("#timer").text(count);
-					count = count-1;
-					if(count<=0){
-						clearInterval(counter);
-						window.location = "bigGestures.html";
-					}
-				}
-			});
-
-
-
-			
-		</script>
 	</head>
-	<body>
-		<div class = "instructionText">Here's Your Prompt:</div>
-		<div class = "instructionText" id = "prompt"></div>
-		<div class = "instructionText timerText">In <span id="timer"></span> seconds your speech will begin. </br>Step back 6 feet from the kinect. </br> <strong> When you're done, get out of view of the camera.</strong></div>		
+	<body style="text-align: center;">
+		<div class="navbar navbar-fixed-top">
+			<img src="img/Panaroma.png"> </img>
+		</div>
+			<div class="row" style="padding-left:30px;">
+				<div class="caption container" >
+					<div class="span5">
+						<p class="large pink" id="chooseTopic" style="opacity: 1;">Choose a Topic</p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Edward vs Jacob </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Drug Legalization </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Does true love exist? </p>
+						><p class="choice medium white text-pink add-space" style="opacity: 1;"> Cats vs Dogs </p>
+					</div>
+	
+					<div class="span5">
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Stanford vs Harvard </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Vamps vs Werewolves </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Nature vs Nurture </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> okCupid vs Match.com </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Or Make Up Your Own </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid" style="padding-top:500px;">
+				<div class = "offset2">
+					<div class="caption container" >
+						<p class="large pink" style="opacity: 1;">Loading...
+						<span><img src="img/loading.gif"></img></span </p>
+					</div>
+				</div>
+			</div>
+
+		
 	</body>	
 </html>

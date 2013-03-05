@@ -1,0 +1,84 @@
+.progress_bar
+{
+	position:absolute;
+	width:100px;
+
+}
+
+#face_and_bar_wrapper
+{
+	
+}
+
+#progress_bar_green
+{
+	z-index:20; 
+	height:484px;
+	bottom:0px;
+}
+
+#progress_bar_black
+{
+	z-index:10; 
+	bottom:0px;
+	height:484px;
+}
+
+
+#bar_div
+{
+	left:700px;
+	position:relative;
+	top:550px;	
+}
+
+
+.face
+{
+	position:absolute;
+}
+
+#green_face
+{
+
+}
+
+#red_face
+{
+	visibility: hidden;
+}
+
+#yellow_face
+{
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+
+#mouth
+{
+	position:absolute;
+	top:420px;
+	width:600px;
+	height:151px;
+}
+
+#mouth_sad
+{
+	position:absolute;
+	top:420px;
+	width:600px;
+	height:151px;
+	visibility:hidden;
+}
+
+#face
+{
+	position:absolute;
+}
+
+#slider_div
+{
+	position:absolute;
+	left:700px;
+}

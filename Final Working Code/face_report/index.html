@@ -1,0 +1,120 @@
+<html> 
+	<head>
+		<script src="face_class.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="face.css">
+	  	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+	  	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	  	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+	  	<link rel="stylesheet" href="/resources/demos/style.css" />
+	  	<script>
+
+	  		function updateFaceExpressionAndColor(value)
+			{
+				score = value;
+				 if (score <= 100 && score > 65)
+		         {
+		         	$("#face_color").attr("src", "Green_Face.png");
+		         }
+		         else if (score <= 65 && score >= 35)
+		         {
+		         	
+		         	$("#face_color").attr("src", "Yellow_Face.png");
+		         }
+		         else if (score <= 35 && score >= 0)
+		         {
+					$("#face_color").attr("src", "Red_Face.png");
+		         };
+
+		         // Score is between 50 and 100, where we use the "smiling image"
+		         if (score <= 100 && score >50)
+		         {
+		         	// MOUTH
+		         	var percentage = (score - 50) * 2;
+		         	var pixelValue = percentage * 151/100 + 3;
+		         	$("#mouth").css("height", pixelValue); 
+		         	$("#mouth_sad").css('visibility', 'hidden');
+		         	$("#mouth").css('visibility', 'visible');
+
+		         	// FACE COLOR
+		         	$("#green_face").css('visibility', 'visible');
+		         	$("#red_face").css('visibility', 'hidden');
+		         	var opacity_value = percentage / 100.0;
+		         	console.log(opacity_value);
+		         	$("#green_face").css({ opacity: opacity_value });
+		         }
+		         // Score is between 50 and 0, where we use the flipped version of the smiling image, dubbed the "horrified image"
+		         else if (score <=50 && score>=0)
+		         {
+		         	// MOUTH
+		         	var percentage = (100 - ((score) * 2)) ;
+		         	var pixelValue = percentage * 151 / 100 + 3 ;
+		         	$("#mouth_sad").css("height", pixelValue); 
+		         	$("#mouth_sad").css('visibility', 'visible');
+		         	$("#mouth").css('visibility', 'hidden');
+
+		         	// FACE COLOR
+		         	$("#green_face").css('visibility', 'hidden');
+		         	$("#red_face").css('visibility', 'visible');
+		         	var opacity_value = percentage / 100.0;
+		         	console.log(opacity_value);
+		         	$("#red_face").css({ opacity: opacity_value });
+		         };
+			}
+
+			function resizeGreenBar(score)
+			{
+				var pixelValue = 484 * score / 100.0;
+				$("#progress_bar_green").css('height', pixelValue);
+			}
+
+
+
+
+			function animateScore(score)
+			{
+				var current_score = 0;
+				// function that will gradually be called
+				var intervalScore = function () {
+				 	current_score = current_score + 1;
+				 	if (score >= current_score)
+				 	{
+			       	  updateFaceExpressionAndColor(current_score);
+			       	  resizeGreenBar(current_score);
+			       	  $("#score_element").text(current_score);
+			       	}
+			    	else
+			    	{
+			    		clearInterval(intervalScore);
+			    	}
+		    	};
+				setInterval(intervalScore, 50);
+			}
+			
+
+
+
+	  	</script>
+	</head>
+
+	<body>
+		<h1 class=""> Your Public Speech Performance Report	</h1>
+		<h3> Score:<a id="score_element"> 0 </a> </h3> 
+		<div id="face_and_bar_wrapper">
+			<div id="bar_div">
+
+				<img class="progress_bar" id="progress_bar_green" src="Progress_Bar_Green.png"> </img>
+				<img class="progress_bar" id="progress_bar_black" src="Progress_Bar_Black.png"> </img>
+			</div>
+	 
+			<img class="face" id="yellow_face" src="Yellow_Face.png"> </img>
+			<img class="face" id="green_face" src="Green_Face.png"> </img>
+			<img class="face" id="red_face" src="Red_Face.png"> </img>
+			<img class="face" id="face" src="Face.png"> </img>
+			<img id="mouth" src="Mouth.png"> </img>
+			<img id="mouth_sad" src="Mouth_Sad.png"> </img>
+		</div>
+
+		<h1> Screenshots </h1>
+
+	</body>
+</html>
