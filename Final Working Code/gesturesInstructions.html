@@ -1,6 +1,11 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<!-- Le styles -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/typica.css">
+
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script>
 			$(document).click(function()
@@ -19,11 +24,36 @@
 		</script>
 	</head>
 	<body>
-		<div class = "menuTitle">Instructions:</div>
-		<div class = "instructionText" id="currentInstruction">Many people are afraid of their hands when giving oral presentations.
-		</br></br>Your task in this module is to make <em>large</em> gestures, above your waist, while giving an impromptu speech based on a prompt we give you.
-		</br></br>You will see a skeleton figure that emulates your movements as you give your speech. The face of the figure will change colors depending on how well you're doing. Like this:</div>
-		<img id="facesImage" src="./img/faces.png"></img>
-		<div class = "instructionText"><a href="prompt.html">Click to continue</a></div>
+		<div class="navbar navbar-fixed-top">
+			<img src="img/Panaroma.png"> </img>
+		</div>
+
+		<div class="row-fluid" style="padding-top:50px;">
+			<div class="span3 offset3">
+					<img src="img/Chest.png" alt="Speechero"></img>
+			</div>
+			<div class="span4">
+				<div class="caption container" style="padding-top:40px;">
+	              <!-- <p class="small white text-dark" style="opacity: 1;">Introducing</p> -->
+	              <!-- <p class="medium white text-pink" style="opacity: 1;">Your new swimming companion</p> -->
+	              <p class="small pink add-space" style="opacity: 1;">Speechero tracks and displays your chest, </p>
+	              <p class="small pink add-space" style="opacity: 1;">so no swaying back and forth</p>
+	            </div>
+			</div>
+		</div>
+		<div class="row-fluid" style="padding-top:50px;">
+			<div class="span4 offset4">
+				<div class="caption container" >
+					<p class="large pink" style="opacity: 1;">Loading...</p>
+					<p class="large pink" style="opacity: 1;"> <img src="img/loading.gif"></img> </p>
+				</div>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span6 offset3">
+					
+			</div>
+		</div>
+		
 	</body>	
 </html>
