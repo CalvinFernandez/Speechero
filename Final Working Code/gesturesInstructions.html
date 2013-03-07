@@ -13,10 +13,17 @@
 				window.location = "prompt.html";
 			});
 			setTimeout(function() {
-				var newMessage= "<p class='medium pink' style='opacity: 1;'>The red circle tracks your chest; </p><p class='medium pink' style='opacity: 1;'>it will move if you rock too much.</p>";
-				$(".caption").html(newMessage);
-                //window.location = "prompt.html";
+				var newMessage= "<p class='medium pink' style='opacity: 1;'>Use a stick figure avatar to </p><p class='medium pink' style='opacity: 1;'>monitor how much you move<br /> while speaking.</p>";
+				$("#instructions").html(newMessage);
+            
             }, 4000);
+            
+            setTimeout(function() {
+				var newMessage= "<p class='medium pink' style='opacity: 1;'>On the next page</p><p class='medium pink' style='opacity: 1;'>choose a topic<br />for a 2 min. speech.</p>";
+				$("#instructions").html(newMessage);
+            
+            }, 9000);
+
 
             setTimeout(function() {
                 window.location = "prompt.html";
@@ -39,12 +46,10 @@
 
 		<div class="row-fluid" style="padding-top:50px;">
 			<div class="span3 offset3">
-					<img src="img/Chest.png" alt="Speechero"></img>
+					<img src="img/skeleton.png" alt="Speechero"></img>
 			</div>
 			<div class="span4">
-				<div class="caption container" style="padding-top:40px;">
-	              <!-- <p class="small white text-dark" style="opacity: 1;">Introducing</p> -->
-	              <!-- <p class="medium white text-pink" style="opacity: 1;">Your new swimming companion</p> -->
+				<div id = "instructions" class="caption container" style="padding-top:40px;">>
 	              <p class="medium pink" style="opacity: 1;">Improve your speeches
 	              </p>
 	              <p class="medium pink " style="opacity: 1;"> with Speechero.</p>
