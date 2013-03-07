@@ -13,8 +13,14 @@
 				window.location = "prompt.html";
 			});
 			setTimeout(function() {
+				var newMessage= "<p class='medium pink' style='opacity: 1;'>The red circle tracks your chest; </p><p class='medium pink' style='opacity: 1;'>it will move if you rock too much.</p>";
+				$(".caption").html(newMessage);
+                //window.location = "prompt.html";
+            }, 4000);
+
+            setTimeout(function() {
                 window.location = "prompt.html";
-            }, 9000);
+            }, 12000);
 			document.onkeydown = function(evt) {
 			    evt = evt || window.event;
 			    if (evt.keyCode == 39) {
@@ -39,9 +45,9 @@
 				<div class="caption container" style="padding-top:40px;">
 	              <!-- <p class="small white text-dark" style="opacity: 1;">Introducing</p> -->
 	              <!-- <p class="medium white text-pink" style="opacity: 1;">Your new swimming companion</p> -->
-	              <p class="small pink add-space" style="opacity: 1;">Speechero critiques your speeches.</p>
-	              <p class="small pink add-space" style="opacity: 1;">It tracks your chest</p>
-	              <p class="small pink add-space" style="opacity: 1;">so stand up straight when you speak!</p>
+	              <p class="medium pink" style="opacity: 1;">Improve your speeches
+	              </p>
+	              <p class="medium pink " style="opacity: 1;"> with Speechero.</p>
 	            </div>
 			</div>
 		</div>
