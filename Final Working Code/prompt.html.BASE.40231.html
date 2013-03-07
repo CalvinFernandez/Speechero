@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<!-- Le styles -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/typica.css">
+
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script>
+			/*$(document).click(function()
+			{
+				window.location = "prompt.html";
+			});*/
+			setTimeout(function() {
+                window.location = "prompt.html";
+            }, 180000);
+
+			$(function (){
+            $(".choice").click(function(event)
+            {
+            	$(event.target).css({"color": "white"});
+            	$(event.target).css({"margin": "10px"});
+            	$(event.target).attr("class", "medium pink");
+            	console.log($(event.target));
+
+            });
+        })
+			document.onkeydown = function(evt) {
+			    evt = evt || window.event;
+			    if (evt.keyCode == 39) {
+		    		window.location = "prompt.html";
+			    }
+			    if (evt.keyCode == 37) {
+		    		window.location = window.history.back();
+			    }
+			};
+		</script>
+	</head>
+	<body style="text-align: center;">
+		<div class="navbar navbar-fixed-top">
+			<img src="img/Panaroma.png"> </img>
+		</div>
+			<div class="row" style="padding-left:30px;">
+				<div class="caption container" >
+					<div class="span5">
+						<p class="large pink" style="opacity: 1;">Choose a Topic</p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Edward vs Jacob </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Drug Legalization </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Does true love exist? </p>
+						><p class="choice medium white text-pink add-space" style="opacity: 1;"> Cats vs Dogs </p>
+					</div>
+	
+					<div class="span5">
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Stanford vs Harvard </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Vamps vs Werewolves </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Nature vs Nurture </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> okCupid vs Match.com </p>
+						<p class="choice medium white text-pink add-space" style="opacity: 1;"> Or Make Up Your Own </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid" style="padding-top:500px;">
+				<div class = "offset2">
+					<div class="caption container" >
+						<p class="large pink" style="opacity: 1;">Loading...
+						<span><img src="img/loading.gif"></img></span </p>
+					</div>
+				</div>
+			</div>
+
+		
+	</body>	
+</html>
