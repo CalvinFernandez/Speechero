@@ -11,11 +11,12 @@
 	<script src="clockHero.js" type="text/javascript"></script>
 	<script src="progressHero.js" type="text/javascript"></script>
 
-		<!-- Le styles -->
+	<!-- Le styles -->
 	<link href = "css/style.css" rel="stylesheet" type="text/css">
 	<link href="../css/bootstrap.css" rel="stylesheet">
 	<link href="../css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../css/typica.css">
+
 
 
 
@@ -29,8 +30,11 @@
 	<!-- MODAL CODE- The popup that gives instructions for the exercise -->
 	<div class="modal hide" id="myModal" style="top:400px;"><!-- note the use of "hide" class -->
 	    	<div class="caption container" style="padding-top:40px;">
-            	<p class="medium pink" style="opacity: 1;"> Now, start your real speech! 
+	    		<p class="medium pink" style="opacity: 1;">PRACTICE ROUND: 
             	</p>
+            	<p class="medium pink" style="opacity: 1;">Rock from side to side 
+            	</p>
+            	<p class="medium pink " style="opacity: 1;"> and see the red circle move.</p>
             </div>
 	</div>​
 
@@ -42,31 +46,34 @@
 
 		setTimeout(function() {
 			$('#myModal').modal('toggle');
-		}, 4000)
+		}, 9000)
 	</script>
 	<!-- End of MODAL CODE -->
 
 
+
 	<div id="heroHeader" style="fixed:top;">
 	</div>
+	<!-- Progress Bar that displays different areas of the code -->
 	<div class="progressContainer" style="width: 50%;">
-		 <h2 style="text-align:center; margin-bottom:0px; padding-bottom:0px; font-family: 'Lato', sans-serif; color:#215879;">                Suggested pace </h2> 
 		<table border="0" width="100%">
 			<col width="25%">
 			<col width="25%">
 			<col width="25%">
 			<col width="25%">
 			<tr>
-				<td id="intro"><h1>Introduction</h1></td>
-				<td id="arg1"><h3>Argument 1</h3></td>
-				<td id="arg2"><h3>Argument 2</h3></td>
-				<td id="conclusion"><h3>Conclusion</h3></td>
+				<td id="intro"><h1></h1></td>
+				<td id="arg1"><h3></h3></td>
+				<td id="arg2"><h3></h3></td>
+				<td id="conclusion"><h3></h3></td>
 			</tr>
 		</table>
 		<div class="progress progress-striped active" style="width:100%;">
 			<div class="bar" style="width: 0%;"></div>
 		</div>
 	</div>
+	<!-- End of Progress Bar code -->
+
 	<div id="topHero">
 		<div id="waveContainer"></div>
 		<div id="fancyClock"></div>
@@ -74,11 +81,11 @@
 	<script type="text/javascript">	
 
 		clockHero = new clockHero();
-		clockHero.registerCallback(function(){ window.location = "../report.html"})
+		clockHero.registerCallback(function(){ window.location = "rockingModule.html"})
 		heroKinectEngine.initKinect();
 
-		progressHero.animate(120);
-		clockHero.startClock(2, 0);
+		//progressHero.animate(30);
+		clockHero.startClock(.5, 0);
 		
 		/*
 		var centerTracker = new center();

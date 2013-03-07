@@ -1,7 +1,7 @@
 <html> 
 	<head>
 
-
+		<meta charset="utf-8">
 		<!-- Le styles -->
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -70,9 +70,9 @@
 				$("#progress_bar_green").css('height', pixelValue);
 			}
 
-
-
-
+			// This function animates the face and the bar to display the score
+			// Parameters:
+			// score- Integer out of 100 that the face will animate to match
 			function animateScore(score)
 			{
 				var current_score = 0;
@@ -119,17 +119,16 @@
 		    	};
 				setInterval(intervalScore, 50);
 			}
-			
-
-
-
 	  	</script>
 	</head>
 
 	<body>
 		<div class="navbar navbar-fixed-top">
 			<img src="img/Panaroma.png"> </img>
-		<h1 class="menuTitle"> <a id="feedback_element">Congrats!</a> Your score: <a id="score_element"> 0</a>/100	</h1>
+		</div>
+
+
+		<h1 class="menuTitle" style="padding-top:30px;"> <a id="feedback_element">Congrats!</a> Your score: <a id="score_element"> 0</a>/100	</h1>
 		<div id="face_and_bar_wrapper">
 			<div id="bar_div">
 
@@ -145,7 +144,10 @@
 			<img class="mouth" id="mouth_sad" src="Mouth_Sad.png"> </img>
 		</div>
 
-		<h1 class="menuTitle" style="position:relative;"> Screenshots </h1>
+		<script src="js/jquery.js"></script>
+	    <script src="js/bootstrap.js"></script>
+	    <script src="js/plugins.js"></script>
+	    <script src="js/setup.js"></script>
 
 	</body>
 </html>

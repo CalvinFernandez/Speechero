@@ -14,7 +14,7 @@
 			});
 			setTimeout(function() {
 				var newMessage= "<p class='medium pink' style='opacity: 1;'>The red circle tracks your chest; </p><p class='medium pink' style='opacity: 1;'>it will move if you rock too much.</p>";
-				$(".caption").html(newMessage);
+				$("#rockMessage").html(newMessage);
                 //window.location = "prompt.html";
             }, 4000);
 
@@ -42,9 +42,7 @@
 					<img src="img/Chest.png" alt="Speechero"></img>
 			</div>
 			<div class="span4">
-				<div class="caption container" style="padding-top:40px;">
-	              <!-- <p class="small white text-dark" style="opacity: 1;">Introducing</p> -->
-	              <!-- <p class="medium white text-pink" style="opacity: 1;">Your new swimming companion</p> -->
+				<div id="rockMessage" class="caption container" style="padding-top:40px;">
 	              <p class="medium pink" style="opacity: 1;">Improve your speeches
 	              </p>
 	              <p class="medium pink " style="opacity: 1;"> with Speechero.</p>
