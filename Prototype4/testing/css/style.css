@@ -1,0 +1,183 @@
+@font-face
+{
+font-family: 'Chunkfive';
+src: url('../fonts/Chunkfive.otf');
+}
+@font-face
+{
+font-family: 'Serifa';
+src: url('../fonts/Serifa.ttf');
+}
+@font-face
+{
+font-family: 'Molot';
+src: url('../fonts/Molot.otf');
+}
+/* ------------------------------------ COMMON ELEMENTS ------------------------------------*/
+
+a{
+	text-decoration: none;
+}
+a:visited{
+	color: white;
+}
+.instructionText{
+	font-family: Serifa;
+	color: white;
+	text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+	font-size: 32px;
+	text-align: center;
+}
+
+.footerText{
+	font-family: Serifa;
+	color: white;
+	text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+	font-size: 20px;
+	position:absolute;
+	bottom:20px;
+}
+
+.menuTitle{
+	font-family: Molot;
+	color: white;
+	text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+	font-size: 100px;
+	text-align: center;
+}
+
+.menuItem{
+	font-family: Serifa;
+	color: white;
+	text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+	font-size: 24px;
+}
+/* ------------------------------------ INDEX ------------------------------------*/
+
+.index .logoImage{
+	width: 100%;
+	margin-bottom:10px;	
+}
+
+
+/* ------------------------------------ SELECT MODE ------------------------------------*/
+.selectMode .logoImage{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom:40px;
+	margin-top: 10px;
+}
+
+.menu{
+	margin-left:150px;
+	margin-right: 150px;
+	margin-top:50px;
+}
+.menu img{
+	width:30%;
+	float:left;
+	margin-right: 10px;
+	margin-left: 10px	;
+}
+
+#facesImage{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+}
+/* ------------------------------------ PROMPT ------------------------------------*/
+#prompt{
+	margin-top: 50px;
+	margin-bottom:200px;
+	font-size: 50px; 
+}
+
+.timerText{
+	font-size: 20px;
+	/*
+	position:absolute;
+	left:50%;
+	bottom:20px;*/
+}
+
+/* ------------------------------------ MODULES ------------------------------------*/
+.modules .imgContainer{
+	margin-left:150px;
+	margin-right: 150px;
+	margin-top:50px;
+}
+.modules img{
+	width:30%;
+	float:left;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#fancyClock
+{
+	float: right;
+	display: inline;
+}
+
+.clockHero
+{
+	border-radius: 10px 10px;
+	float: left;
+	width: 100px;
+	height: 100px;
+	background-color: black;
+	opacity: 0.6;
+	margin-right: 10px;
+	margin-left: 10px;
+	color: white;
+	font-size: 20px;
+	font-family: Helvetica sans-serif
+}
+
+.clockHero > h1
+{
+	margin-top: 25;
+	text-align: center;
+}
+
+#topHero
+{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 50%;
+}
+
+#waveContainer
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	display:inline;
+}
+#waveContainer > canvas
+{
+	padding: 2px;
+	border: 5px solid #cccccc;
+}
+.progressContainer
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+td
+{
+	text-align: center;
+}
+
+#heroHeader
+{
+	padding-bottom: 10px;
+	border-bottom: 2px solid #cccccc;;
+
+}

@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Le styles -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/typica.css">
+
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script>
+			$(document).click(function()
+			{
+				window.location = "gesturesInstructions.html";
+			});
+			document.onkeydown = function(evt) {
+			    evt = evt || window.event;
+			    if (evt.keyCode == 39) {
+			        window.location = "gesturesInstructions.html";			    
+			    }
+			};
+
+            setTimeout(function() {
+                window.location = "gesturesInstructions.html";
+            }, 41000);
+		</script>
+
+
+
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<img src="img/Panaroma.png"> </img>
+		</div>
+
+		<div class="row-fluid">
+			<div class="span6 offset3 portfolio-item">
+				<iframe width="800" height="500" src="http://www.youtube.com/embed/r4uxhbyjeU8?autoplay=1" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+		<script src="js/jquery.js"></script>
+	    <script src="js/bootstrap.js"></script>
+	    <script src="js/plugins.js"></script>
+	    <script src="js/setup.js"></script>
+	</body>	
+</html>

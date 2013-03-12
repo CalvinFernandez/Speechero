@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script type="text/javascript" src="js/kinect.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript"></script>
+        <script src="monitor/monitor.js" type="text/javascript"></script>
+
+        <style type="text/css">
+            body {
+                background-color: #000;
+                margin: 0px;
+                overflow: hidden;
+                cursor:crosshair;
+            }
+            .joint{
+                position:absolute;
+                background:orange;
+                border-radius:8px;
+                width:20px;
+                height:20px;
+            }
+        </style> 
+                <script src="face_class.js" type="text/javascript"></script>
+
+        <link rel="stylesheet" type="text/css" href="face.css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="/resources/demos/style.css" />
+        <script>
+
+                
+                  function changeFace(value) {
+                     if (value <= 100 && value > 65)
+                     {
+                        $("#face_color").attr("src", "Green_Face.png");
+                     }
+                     else if (value <= 65 && value >= 35)
+                     {
+                        
+                        $("#face_color").attr("src", "Yellow_Face.png");
+                     }
+                     else if (value <= 35 && value >= 0)
+                     {
+                        $("#face_color").attr("src", "Red_Face.png");
+                     };
+
+
+                     if (value <= 100 && value >50)
+                     {
+                        // MOUTH
+                        var percentage = (value - 50) * 2;
+                        var pixelValue = percentage * 30/100 + 3;
+                        $("#mouth").css("height", pixelValue); 
+                        $("#mouth_sad").css('visibility', 'hidden');
+                        $("#mouth").css('visibility', 'visible');
+
+                        // FACE COLOR
+                        $("#green_face").css('visibility', 'visible');
+                        $("#red_face").css('visibility', 'hidden');
+                        var opacity_value = percentage / 100.0;
+                        //console.log(opacity_value);
+                        $("#green_face").css({ opacity: opacity_value });
+                     }
+                     else if (value <=50 && value>=0)
+                     {
+                        // MOUTH
+                        var percentage = (100 - ((value) * 2)) ;
+                        var pixelValue = percentage * 30 / 100 + 3 ;
+                        $("#mouth_sad").css("height", pixelValue); 
+                        $("#mouth_sad").css('visibility', 'visible');
+                        $("#mouth").css('visibility', 'hidden');
+
+                        // FACE COLOR
+                        $("#green_face").css('visibility', 'hidden');
+                        $("#red_face").css('visibility', 'visible');
+                        var opacity_value = percentage / 100.0;
+                        //console.log(opacity_value);
+                        $("#red_face").css({ opacity: opacity_value });
+                     };
+                  }
+
+
+        </script>   
+    </head>
+
+    <body id='body'>
+        <div id="_1" class="joint">
+            <img class="face" id="yellow_face" src="Yellow_Face.png"> </img>
+            <img class="face" id="green_face" src="Green_Face.png"> </img>
+            <img class="face" id="red_face" src="Red_Face.png"> </img>
+            <img class="face" id="face" src="Face.png"> </img>
+            <img id="mouth" src="Mouth.png"> </img>
+            <img id="mouth_sad" src="Mouth_Sad.png"> </img> 
+        </div> 
+        <div id="_2" class="joint"></div>
+        <div id="_3" class="joint"></div>
+        <div id="_4" class="joint"></div>
+        <div id="_5" class="joint"></div>
+        <div id="_6" class="joint"></div>
+        <div id="_7" class="joint"></div>
+        <div id="_0" class="joint"></div>
+    
+        <script type="text/javascript">
+            //  Init monitors 
+                performance_monitor.init_handtracker();
+
+
+            // LINE DRAWING CODE BETWEEN DIVS
+            function getOffset( el ) { // return element top, left, width, height
+                var _x = 0;
+                var _y = 0;
+                var _w = el.offsetWidth|0;
+                var _h = el.offsetHeight|0;
+                while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+                    _x += el.offsetLeft - el.scrollLeft;
+                    _y += el.offsetTop - el.scrollTop;
+                    el = el.offsetParent;
+                }
+                return { top: _y, left: _x, width: _w, height: _h };
+            }
+
+            function connect(div1, div2, color, thickness) { // draw a line connecting elements
+                var off1 = getOffset(div1);
+                var off2 = getOffset(div2);
+                // bottom right
+                var x1 = off1.left + off1.width;
+                var y1 = off1.top + off1.height;
+                // top right
+                var x2 = off2.left + off2.width;
+                var y2 = off2.top;
+                // distance
+                var length = Math.sqrt(((x2-x1) * (x2-x1)) + ((y2-y1) * (y2-y1)));
+                // center
+                var cx = ((x1 + x2) / 2) - (length / 2);
+                var cy = ((y1 + y2) / 2) - (thickness / 2);
+                // angle
+                var angle = Math.atan2((y1-y2),(x1-x2))*(180/Math.PI);
+                // make hr
+                var htmlLine = "<div class='line' style='z-index:-2; padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
+                //
+                //alert(htmlLine);
+                document.body.innerHTML += htmlLine;
+            }
+            var faceColorValue = 75.0;
+            kinect.setUp({
+                    players     : 1,
+                    relative    : false,
+                    meters      : false,
+                    sensitivity : 1.0,
+                    joints      : [ 'HAND_RIGHT', 'HEAD', 'HAND_LEFT', 'ELBOW_LEFT',
+                            "ELBOW_RIGHT", "FOOT_LEFT", "FOOT_RIGHT", "HIP_CENTER"
+                        ],
+                    gestures    : [ 'ESCAPE' ]
+                }).onMessage( function( e ) {
+                    var coords = this.coords;
+                    if( coords[ 0 ] )
+                    {
+                        coords = this.coords[ 0 ];
+                        var len = coords.length;
+
+                        // pass in left hand right hand
+                        performance_monitor.add_hands(coords[2], coords[0])
+                            .analyze(function( data )
+                            {
+                                if ( data.aboveWaist === false )
+                                {
+                                    // take away points for movements below the waist
+                                    faceColorValue = Math.max((faceColorValue - 0.01), 0);
+                                    changeFace(faceColorValue);
+                                }
+                                
+                                if ( data.largeMovement === true )
+                                {
+                                    if ( data.aboveWaist === true )
+                                    {
+                                        faceColorValue = Math.min((faceColorValue + 0.5), 100);
+                                        changeFace(faceColorValue);
+                                    }
+                                    else
+                                    {
+                                        // give lots of points for large movements
+                                        faceColorValue = Math.min((faceColorValue + 0.2), 100);
+                                        changeFace(faceColorValue);
+                                    }
+                                }
+                                else if ( data.largeMovement === false )
+                                {
+                                    // take away a few points for not gesturing
+                                    faceColorValue = Math.max((faceColorValue - 0.2), 0);
+                                    changeFace(faceColorValue);
+                                }
+                            });
+
+                        performance_monitor.updateWaist(coords[7].y);
+
+                        while( len-- )
+                            document.getElementById( '_' + len ).style.cssText = 'left:' + coords[ len ].x + '%;top:' + coords[ len ].y + '%';
+
+                    }
+
+                    $('.line').remove();
+
+                    connect(document.getElementById('_2'), document.getElementById('_3'), "#0F0", 5);
+                    connect(document.getElementById('_0'), document.getElementById('_4'), "#0F0", 5);
+                    connect(document.getElementById('_5'), document.getElementById('_7'), "#0F0", 5);
+                    connect(document.getElementById('_6'), document.getElementById('_7'), "#0F0", 5);
+                    connect(document.getElementById('_7'), document.getElementById('_1'), "#0F0", 5);
+                    connect(document.getElementById('_1'), document.getElementById('_3'), "#0F0", 5);
+                    connect(document.getElementById('_1'), document.getElementById('_4'), "#0F0", 5);
+                    //connect(document.getElementById('_13'), document.getElementById('_7'), "#0F0", 5);
+                    
+                    //connect(div7, div8, "#0F0", 5);
+                    //connect(div7, div9, "#0F0", 5);
+                    //connect(div9, div11, "#0F0", 5);
+                    //connect(div11, div6, "#0F0", 5);
+                    //connect(div8, div5, "#0F0", 5);
+                    //connect(div2, div10, "#0F0", 5);
+                })
+            .sessionPersist()
+            .modal.make( 'css/knctModal.css' )    //kickstarting the modal
+            .notif.make();                          //kickstarting the notifications
+            
+            //adding notifications on connection status
+            kinect.addEventListener('openedSocket', function() { this.notif.push( "CONNECTED" ); });
+            kinect.addEventListener('closedSocket', function() { this.notif.push( "DISCONNECTED" ) });
+
+            //adding notifications on player detection/loss
+            kinect.addEventListener('playerFound', function( count ) { this.notif.push( "PLAYER FOUND. Total : " + count[ 0 ] ) });
+            kinect.addEventListener('playerLost', function( count ) { window.location.replace("index.html");; this.notif.push("PLAYER LOST. Total : " + count[ 0 ] ) });
+
+            kinect.addEventListener('gestureJump', function(args) {
+                console.log("Peace man!")
+            });
+
+            
+        </script> 
+    </body>
+</html>
+

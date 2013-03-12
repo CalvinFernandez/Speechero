@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title> Testing environment </title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="kinect.js"></script>
+	<script src="heroKinectEngine.js" type="text/javascript"></script>
+	<script src="waves.js" type="text/javascript"></script>
+	<!--<script src="center_static.js" type="text/javascript"></script>-->
+	<!--<script src="snapshot.js" type="text/javascript"></script>-->
+	<script src="clockHero.js" type="text/javascript"></script>
+	<script src="progressHero.js" type="text/javascript"></script>
+
+	<link href = "css/style.css" rel="stylesheet" type="text/css">
+	<link href = "css/bootstrap.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+	<div id="topHero">
+		<div id="waveContainer"></div>
+		<div id="fancyClock"></div>
+	</div>
+	<div class="progressContainer" style="width: 50%;">
+		<div class="progress progress-striped active" style="width:100%;">
+			<div class="bar" style="width: 0%;"></div>
+		</div>
+		<table border="0" width="100%">
+			<col width="25%">
+			<col width="25%">
+			<col width="25%">
+			<col width="25%">
+			<tr>
+				<td id="intro"><h1>Introduction</h1></td>
+				<td id="arg1"><h3>Argument 1</h3></td>
+				<td id="arg2"><h3>Argument 2</h3></td>
+				<td id="conclusion"><h3>Conclusion</h3></td>
+			</tr>
+		</table>
+	</div>
+
+	<script type="text/javascript">	
+
+		clockHero = new clockHero();
+		//heroKinectEngine.initKinect();
+
+		progressHero.animate(120);
+		clockHero.startClock(2, 0);
+		
+		/*
+		var centerTracker = new center();
+		centerTracker.init("skeletonContainer");
+		heroKinectEngine.registerCallback(centerTracker.kinectCallback, centerTracker);
+	*/
+		
+		var waveMaker = new wave();
+		waveMaker.init('waveContainer');
+		
+		//var skelly = new kinectSkeleton("skelly1", "skeletonContainer");
+		//heroKinectEngine.registerCallback(waveMaker.kinectCallback, waveMaker);
+		
+	</script>
+</body>
+</html>
