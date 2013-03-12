@@ -1,0 +1,108 @@
+<html>
+<head>
+	<title> Testing environment </title>
+	<meta charset="utf-8">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="kinect.js"></script>
+	<script src="heroKinectEngine.js" type="text/javascript"></script>
+	<script src="waves.js" type="text/javascript"></script>
+	<!--<script src="center_static.js" type="text/javascript"></script>-->
+	<!--<script src="snapshot.js" type="text/javascript"></script>-->
+	<script src="clockHero.js" type="text/javascript"></script>
+	<script src="progressHero.js" type="text/javascript"></script>
+
+	<!-- Le styles -->
+	<link href = "css/style.css" rel="stylesheet" type="text/css">
+	<link href="../css/bootstrap.css" rel="stylesheet">
+	<link href="../css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/typica.css">
+
+
+
+
+</head>
+
+<body>
+	<div class="navbar navbar-fixed-top">
+		<img src="../img/Panaroma.png"> </img>
+	</div>
+
+	<!-- MODAL CODE- The popup that gives instructions for the exercise -->
+	<div class="modal hide" id="myModal" style="top:400px;"><!-- note the use of "hide" class -->
+	    	<div class="caption container" style="padding-top:40px;">
+	    		<p class="medium pink" style="opacity: 1;">PRACTICE ROUND: 
+            	</p>
+            	<p class="medium pink" style="opacity: 1;">Rock from side to side 
+            	</p>
+            	<p class="medium pink " style="opacity: 1;"> and see the red circle move.</p>
+            </div>
+	</div>​
+
+	<!-- Makes modal show up and then disappear after a little while -->
+	<script>
+		setTimeout(function() {
+			$('#myModal').modal('toggle');
+		}, 1000)
+
+		setTimeout(function() {
+			$('#myModal').modal('toggle');
+		}, 9000)
+	</script>
+	<!-- End of MODAL CODE -->
+
+
+
+	<div id="heroHeader" style="fixed:top;">
+	</div>
+	<!-- Progress Bar that displays different areas of the code -->
+	<div class="progressContainer" style="width: 50%;">
+		<table border="0" width="100%">
+			<col width="25%">
+			<col width="25%">
+			<col width="25%">
+			<col width="25%">
+			<tr>
+				<td id="intro"><h1></h1></td>
+				<td id="arg1"><h3></h3></td>
+				<td id="arg2"><h3></h3></td>
+				<td id="conclusion"><h3></h3></td>
+			</tr>
+		</table>
+		<div class="progress progress-striped active" style="width:100%;">
+			<div class="bar" style="width: 0%;"></div>
+		</div>
+	</div>
+	<!-- End of Progress Bar code -->
+
+	<div id="topHero">
+		<div id="waveContainer"></div>
+		<div id="fancyClock"></div>
+	</div>
+	<script type="text/javascript">	
+
+		clockHero = new clockHero();
+		clockHero.registerCallback(function(){ window.location = "rockingModule.html"})
+		heroKinectEngine.initKinect();
+
+		//progressHero.animate(30);
+		clockHero.startClock(.5, 0);
+		
+		/*
+		var centerTracker = new center();
+		centerTracker.init("skeletonContainer");
+		heroKinectEngine.registerCallback(centerTracker.kinectCallback, centerTracker);
+	*/
+		
+		var waveMaker = new wave();
+		waveMaker.init('waveContainer');
+		
+		//var skelly = new kinectSkeleton("skelly1", "skeletonContainer");
+		heroKinectEngine.registerCallback(waveMaker.kinectCallback, waveMaker);
+		
+	</script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/plugins.js"></script>
+	<script src="../js/setup.js"></script>
+</body>
+</html>
